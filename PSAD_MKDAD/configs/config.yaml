@@ -1,0 +1,34 @@
+# Data parameters
+experiment_name: 'local_equal_net'
+dataset_name: 'mvtec' # [mnist, fashionmnist, cifar10, mvtec, retina]
+# last_checkpoint: 430
+
+
+# Training parameters
+num_epochs: 601 # mnist/fashionmnist:51, cifar10:201, mvtec:601
+batch_size: 32
+learning_rate: 1e-3
+mvtec_img_size: 128
+
+# normal_class: 'capsule' # mvtec:'capsule', mnist:3
+
+lamda: 0.5 # mvtec:0.5, Others:0.01
+
+
+pretrain: True # True:use pre-trained vgg as source network --- False:use random initialize
+use_bias: False # True:using bias term in neural network layer
+equal_network_size: False # True:using equal network size for cloner and source network --- False:smaller network for cloner
+direction_loss_only: False
+continue_train: False
+
+
+# Test parameters
+localization_method: 'gradients' # gradients , smooth_grad , gbp
+
+
+##### plus option for PSAD #####
+last_checkpoint: 600
+dataset_path : '~/Desktop/ADPS/datasets/L2_normal_dataset'
+localization_test: True # True:For Localization Test --- False:For Detection
+version : "multi_early_rgb" # 'single_rgb', 'single_normal', 'single_gx', 'single_gy', 'single_gauss_curvature', 'single_mean_curvature', 'multi_early_rgb', 'multi_early_rgb+normal', 'multi_early_albedo+normal', 'multi_late_mean_pooling', 'multi_late_max_pooling', 'multi_late_mean_max_pooling'
+#################################
